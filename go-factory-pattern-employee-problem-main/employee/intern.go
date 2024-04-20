@@ -20,3 +20,7 @@ func NewIntern() *Intern {
 
 	return intern
 }
+
+func (i *Intern) GetBonus() float64 {
+	return float64(i.Salary) * 0.0
+}

@@ -6,6 +6,7 @@ type EmployeeInterface interface {
 	SetSalary(salary int)
 	GetName() string
 	GetSalary() int
+	GetBonus() float64
 	/*
 		TODO: Add a new method called GetBonus() that returns a float64
 	*/
@@ -36,4 +37,8 @@ func (e *Employee) GetName() string {
 // GetSalary gets the salary of the employee
 func (e *Employee) GetSalary() int {
 	return e.Salary
+}
+
+func (e *Employee) GetBonus() float64 {
+	return e.Bonus
 }
