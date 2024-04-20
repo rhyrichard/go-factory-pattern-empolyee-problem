@@ -63,17 +63,33 @@ var _ = Describe("Employee", func() {
 
 		// TODO: Implement the test for the Director object
 		Context("Director Object", func() {
+			It("should return the correct name and salary", func() {
+				empl, err := employee.GetEmployeeFactory("director")
+				Expect(err).NotTo(HaveOccurred())
 
-		})
+				Expect(empl.GetName()).To(Equal("Director"))
+				Expect(empl.GetSalary()).To(Equal(5000))
+			})
 
-		Context("Empty Employee", func() {
+			It("should return the correct bonus", func() {
+				// TODO Implement the test for the bonus
+				// Salary is 5000
+				// Bonus is 30% of the salary
+				// Bonus is 1500
+				empl, err := employee.GetEmployeeFactory("director")
+				Expect(err).NotTo(HaveOccurred())
+				Expect(empl.GetBonus()).To(Equal(1500.0))
+			})
 
-			It("should return an error", func() {
-				_, err := employee.GetEmployeeFactory("non-existing")
-				Expect(err).To(HaveOccurred())
+			Context("Empty Employee", func() {
+
+				It("should return an error", func() {
+					_, err := employee.GetEmployeeFactory("non-existing")
+					Expect(err).To(HaveOccurred())
+				})
+
 			})
 
 		})
-
 	})
 })
